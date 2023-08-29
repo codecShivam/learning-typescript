@@ -187,16 +187,16 @@ console.log(sumAll(20, 20)); //50 as a is 20 and b is 20 and c is 10
 console.log(sumAll(20, 20, 20)); //60 as a is 20 and b is 20 and c is 20
 // console.log(sumAll(29))// it will give error as b is required and we are giving value to a only we must write undefined to a if we want to give value to b only
 // rest parameters
-const total = (a, ...nums) => {
-    return nums.reduce((prev, curr) => prev + curr);
-};
-logMsg(total(1)); // 0 as nums is an empty array 1 is not added to it because it is not in array of nums
-logMsg(total(1, 1, 1, 1, 1, 1)); //5 as 1 is added to nums array and then reduce is applied to it
-const newTotal = (a, ...nums) => {
-    return a + nums.reduce((prev, curr) => prev + curr);
-};
-logMsg(newTotal(1)); // 1 as nums is an empty array 1 is not added to it because it is not in array of nums
-//**************** */
+// const total = (a: number, ...nums: number[]): number => {
+//   return nums.reduce((prev, curr) => prev + curr);
+// };
+// logMsg(total(1)); // 0 as nums is an empty array 1 is not added to it because it is not in array of nums
+// logMsg(total(1, 1, 1, 1, 1, 1)); //5 as 1 is added to nums array and then reduce is applied to it
+// const newTotal = (a: number, ...nums: number[]): number => {
+//   return a + nums.reduce((prev, curr) => prev + curr);
+// };
+// logMsg(newTotal(1)); // 1 as nums is an empty array 1 is not added to it because it is not in array of nums
+// //**************** */
 const createError = (errMsg) => {
     throw new Error(errMsg);
 };
@@ -224,3 +224,26 @@ const numberOrString = (value) => {
         return "number";
     return createError("this should never happen");
 };
+//convert to more or less specific
+let a = 'hello';
+let b = a; //b is of type Two , less specific than One
+console.log(b);
+console.log(typeof b);
+let c = a; // more specific
+console.log(c);
+let d = 'World!'; // jsx does not support this syntax
+let e = 'world'; // jsx does not support this syntax
+const addOrConcat = (a, b, c) => {
+    if (c === 'add')
+        return a + b;
+    return `${a}${b}`;
+};
+let myVal = addOrConcat(1, 2, 'concat');
+console.log(myVal); //12
+// Be careful because TS will not warn you if you are doing something wrong we are not returning number as we said concat return a number
+let nextVal = addOrConcat(1, 2, 'concat');
+console.log(nextVal); //12 which is not a number
+console.log(typeof nextVal); //string but nextVal is of type number 
+// 10 as string; //Typescript checks when it can 
+10; //double assertion or force assertion
+//THE DOM

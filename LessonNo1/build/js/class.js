@@ -114,4 +114,4 @@ console.log(Mybands.data); //output: ["Metallica", "Slayer", "Megadeth"]
 Mybands.data = [...Mybands.data, "Iron Maiden"];
 console.log(Mybands.data); //output: ["Metallica", "Slayer", "Megadeth", "Iron Maiden"]
 // Mybands.data = "van halen"; //error output: Param is not an array of strings
-Mybands.data = ["van halen"]; //output: ["van halen"]
+// Mybands.data = ["van halen",23] //error output: Param is not an array of strings
